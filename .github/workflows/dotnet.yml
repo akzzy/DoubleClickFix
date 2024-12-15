@@ -33,28 +33,8 @@ jobs:
       run: Compress-Archive -Path Release/* -DestinationPath DoubleClickFix.zip
       shell: pwsh
 
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
-        body: |
-          Release notes
-          Download the binaries, extract the DoubleClickFix.zip file and launch DoubleClickFix.exe.
-          This will launch a Windows tray icon. Double-click it to open the UI and fine-tune the settings.
-          Windows only. Requires .NET 8 run-time.
-        draft: false
-        prerelease: false
-
-    - name: Upload release assets
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./DoubleClickFix.zip
-        asset_name: DoubleClickFix.zip
-        asset_content_type: application/zip    
+        name: DoubleClickFix
+        path: DoubleClickFix.zip
