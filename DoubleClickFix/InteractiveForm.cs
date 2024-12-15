@@ -55,29 +55,29 @@ internal partial class InteractiveForm : Form
         switch (e.Button)
         {
             case MouseButtons.Left:
-            left.BackColor = Color.Red;
-            // Launch Windows Explorer
-            try
-            {
-                System.Diagnostics.Process.Start("explorer.exe");
-            }
-            catch (Exception ex)
-            {
-                Log($"Failed to open Explorer: {ex.Message}");
-            }
-            break;
-        case MouseButtons.Right:
-            right.BackColor = Color.Red;
-            break;
-        case MouseButtons.Middle:
-            middle.BackColor = Color.Red;
-            break;
-        case MouseButtons.XButton1:
-            x1.BackColor = Color.Red;
-            break;
-        case MouseButtons.XButton2:
-            x2.BackColor = Color.Red;
-            break;
+                left.BackColor = Color.Red;
+                // Launch Windows Explorer
+                try
+                {
+                    System.Diagnostics.Process.Start("explorer.exe");
+                }
+                catch (Exception ex)
+                {
+                    Log($"Failed to open Explorer: {ex.Message}");
+                }
+                break;
+            case MouseButtons.Right:
+                right.BackColor = Color.Red;
+                break;
+            case MouseButtons.Middle:
+                middle.BackColor = Color.Red;
+                break;
+            case MouseButtons.XButton1:
+                x1.BackColor = Color.Red;
+                break;
+            case MouseButtons.XButton2:
+                x2.BackColor = Color.Red;
+                break;
         }
     }
 
